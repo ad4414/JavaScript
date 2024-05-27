@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>如何确认this值</h2>
+    <script>
+        //严格模式
+       /*  'use strict'
+        console.log(this); */
+     //函数内部
+     //直接点用 非严格模式
+     /*  function fun(){
+        console.log(this);
+      }
+      fun() */
+      //严格模式
+       
+      function fun(){
+        console.log(this);
+      }
+      fun()
+      //对象方法调用
+      const food={
+        name:'猪脚饭',
+        eat(){
+            console.log(this);
+        }
+      }
+      food.eat()//name: '猪脚饭', eat: ƒ}
+    </script>
+</body>
+</html>

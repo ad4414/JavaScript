@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Object.prototype.objFunc=function(){}
+        Array.prototype.arrFun=function(){}
+        const food=['西蓝花','辣椒','青菜']
+         for (const key in food) {
+             console.log('key:',key);
+        } 
+        for (const i of food) {
+            console.log(i);
+        }
+        console.log(Symbol.iterator);
+    </script>
+</body>
+</html>

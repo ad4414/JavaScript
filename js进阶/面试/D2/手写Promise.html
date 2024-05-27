@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造函数
+        //状态及原因
+        /* 
+        1.添加状态（pending/fulfilled/rejected）
+        2.添加原因
+        3.调整resolve/reject
+        4.状态不可逆
+        */
+       //封装函数
+       //通过变量来保存状态
+       function runAsynctask(callBack) {
+            if(typeof queueMicrotask==='function'){
+                queueMicrotask(callBack)
+            }else if(typeof MutationObserver==='function'){
+                const obs=new MutationObserver(callBack)
+                const divNode=document.createElement('div')
+                obs.observe(divNode,{childList:true})
+                divNode.innerHTML='666'
+            }else{
+                setTimeout(callBack,0)
+            }
+        }
+       const pending='pending'
+       const fulfilled='fulfilled'
+       const rejected='rejected'
+        class WTPromise{
+            state=pending
+            result=undefined
+            #handlers=[]
+           constructor(func){
+            //改状态pending->fulfilled
+         const resolve=(result)=>{
+            if(this.state===pending){
+                 this.state=fulfilled
+            this.result=result
+            this.#handlers.forEach(({onFulfilend})=>{
+                onFulfilend(this.result)
+            })
+            }
+           
+         }
+         //改状态pending->rejected
+         const reject=(result)=>{
+            if(this.state===pending){
+                 this.state=rejected
+            this.result=result
+            this.#handlers.forEach(({onRejected})=>{
+                onRejected(this.result)
+            })
+            }
+           
+         }
+         func(resolve,reject)
+           } 
+         //成功失败原因回调
+       //添加实例方法
+       //参数判断函数
+        //执行成功回调
+        //执行失败回调
+         //then方法
+         //返回一个新的promise实例
+         //获取返回值
+         //处理返回值
+         //处理异常
+        then(onFulfilend,onRejected){
+           onFulfilend= typeof onFulfilend==='function'?onFulfilend:x=>x
+           onRejected=typeof onRejected==='function'?onRejected:x=>{throw x}
+           const p2=new WTPromise((resolve,reject)=>{
+  //使用封装函数
+  if(this.state===fulfilled){
+            
+              runAsynctask(()=> {
+                //获取返回值
+                try {
+                     const x=onFulfilend(this.result)
+                     //处理重复引用
+                     resolvePromise(x,p2,resolve,reject)
+               
+                } catch (error) {
+                     reject(error)
+                }
+               
+            }) 
+        }else if(this.state===rejected){
+           
+                 runAsynctask(()=> {
+                   
+                   try {
+                    const y= onRejected(this.result)
+                     resolvePromise(y,p2,resolve,reject)
+                   } catch (error) {
+                    reject(error)
+                   }
+                }) 
+        }else if(this.state===pending){
+            this.#handlers.push({
+                onFulfilend:()=>{
+                    runAsynctask(()=>{
+                        try {
+                             const z= onFulfilend(this.result)
+                       resolvePromise(z,p2,resolve,reject)
+                        } catch (error) {
+                            reject(error)
+                        }
+                      
+                    })
+                },onRejected:()=>{
+                    runAsynctask(()=>{
+                        try {
+                            const s=onRejected(this.result)
+                        resolvePromise(s,p2,resolve,reject)
+                        } catch (error) {
+                            reject(error)
+                        }
+                        
+                    })
+                }
+            })
+        }
+           })
+          
+         
+        return p2
+        }
+        }
+        function resolvePromise(x,p2,resolve,reject){
+            if(x===p2){
+                        //抛出错误
+                        throw new TypeError('error')
+                     }
+               if(x instanceof WTPromise){
+                  x.then((res)=>{
+                resolve(res)
+                  },err=>{
+                   reject(err)
+                  })
+               }else{
+                resolve(x)
+               }
+               
+        }
+      /*   const p=new WTPromise((resolve,reject)=>{
+              setTimeout(()=>{
+   resolve('success')
+             //reject('error')
+              },2000)
+             
+        })
+        p.then(res=>{
+            console.log('成功回调:',res);
+            
+        },err=>{
+            console.log(err);
+            return  10
+        }).then((res)=>{
+            console.log('成功回调:',res);
+        },err=>{
+            console.log(err);
+        }) */
+        /* const p=new WTPromise((resolve,reject)=>{
+            resolve(1)
+        })
+        const p3=p.then((res)=>{
+            return p3
+        })
+        p3.then(res=>{
+
+        },err=>{
+            console.log(err);
+        }) */
+   const p=new WTPromise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve(123)
+        //reject(236)
+    })
+   })
+   const p2=p.then(res=>{
+    throw 'error'
+   })
+   p2.then(res=>{
+    console.log('res:',res);
+   },err=>{
+    console.log('err:',err);
+   })
+   </script>
+</body>
+</html>

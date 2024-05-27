@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分割页面示例</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr 1px 1fr;
+        height: 100vh;
+    }
+
+    .section {
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .divider {
+        background-color: #333;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="section">第一部分</div>
+    <div class="divider"></div>
+    <div class="section">第二部分</div>
+    <div class="divider"></div>
+    <div class="section">第三部分</div>
+    <div class="divider"></div>
+    <div class="section">第四部分</div>
+</div>
+</body>
+</html>

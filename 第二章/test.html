@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li{
+            color: red;
+        }
+        div>a{
+            color: red;
+        }
+        #te li~p{
+            color: red;
+        }
+        #test{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            padding: 80px;
+            border: 5px solid blue;
+            margin: 70px;
+        }
+        #container{
+            width: 500px;
+            height: 500px;
+            background-color: black;
+            display: flex;
+            flex-direction:column ;
+            /* justify-content: flex-end; */
+            align-items: center;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            flex-grow: 1;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color:antiquewhite;
+            flex-grow: 2;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color:salmon;
+            flex-grow: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+       <div class="box1"></div>
+       <div class="box2"></div>
+       <div class="box3"></div>
+    </div>
+    <div id="test">
+      我是内容
+    </div>
+    <ol id="te">
+        <li>你好</li>
+        <p>你好</p>
+        <a href="#">你好</a>
+        <p>Hello World</p>
+    </ol>
+    <ul>
+        <li>列表一</li>
+        <li>列表二</li>
+        <li>列表三</li>
+        <div>
+            <ol>
+            <li>列表3</li>
+            <li>列表4</li>
+            <li>列表5</li>
+        </ol>
+            
+        </div>
+    </ul>
+    <div>
+        <a href="#">子元素</a>
+        <P><a href="#">孙元素</a></P>
+        <a href="子元素2"></a>
+    </div>
+</body>
+</html>

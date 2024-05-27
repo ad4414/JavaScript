@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义myCall
+
+        //使用symbol优化
+        Function.prototype.myCall=function(thisArg,...args){
+          console.log('hello');
+          //设置this并调用原函数
+          //thisArg传入的需要设置为this的对象   
+          //this 原函数         
+          let sym1=Symbol('f') 
+          console.log(sym1);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+          thisArg[sym1]=this
+         const res= thisArg[sym1](...args)
+          delete thisArg[sym1]
+          return res
+        }
+        function fun(num1,num2){
+            console.log(this);
+            console.log(num1,num2);
+            return num1+num2
+        }
+   const person={
+    name:'坤哥',
+    say(){
+        console.log('基尼太美');
+
+    }
+   }
+   const res=fun.myCall(person,5,5)
+    console.log(res);
+    </script>
+</body>
+</html>

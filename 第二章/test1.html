@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /*  .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            float: left;
+        }
+        .container{
+            width: 400px;
+            height: 400px;
+            background-color: black;
+             
+        }
+        img{
+            width: 350px;
+            float: left;
+        } */
+        .test{
+            width: 400px;
+             
+            background-color:saddlebrown;
+            /* overflow: hidden;
+            clear: both; */
+        }
+       .test ::after{
+         /* 伪对象 */
+         content:"" ;
+         clear: both;
+         display: block;
+       }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 5px;
+            float: left;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            float: left;
+            margin: 5px;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+            margin: 5px;
+        }
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+             clear: both;  
+             
+        }
+        
+    </style>
+</head>
+<body>
+   <!--  <div class="box"></div>
+    <div class="container"></div> -->
+   <!--  <img src="../第一章/1.png" alt="">
+    <img src="../第一章/1.png" alt=""> -->
+    <div class="test">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4" ></div>
+</div>
+
+
+</body>
+</html>

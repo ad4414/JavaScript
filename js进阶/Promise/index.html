@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Promise初体验</h1>
+    <button class="btn">抽奖</button>
+</body>
+<script>
+    const rand=(m,n)=>{
+    return Math.ceil(Math.random()*(n-m+1))+m-1
+    }
+const btn=document.querySelector('.btn')
+btn.addEventListener('click',()=>{
+
+//使用promise
+//resolve解决
+//reject拒绝
+const p=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+let n=rand(1,100)
+if(n<30){
+    resolve(n)
+}else{
+    reject(n)
+}
+},1000)
+})
+console.log(p);
+//调用then方法
+p.then((value)=>{
+console.log('中奖10万RMB,你的号码是'+value);
+},
+(reason)=>{
+console.log('谢谢惠顾,您的号码是 '+reason);
+})
+})
+
+</script>
+</html>

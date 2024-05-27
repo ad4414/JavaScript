@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //动态传入判断类型
+     const typeofTest=function (type){
+     function isUndefined(thing){
+        return typeof thing===type
+     }
+     return isUndefined
+     } 
+     //最简形式
+     const typeofTest1=(type)=>(thing)=>typeof thing===type
+     const isString=typeofTest('string')  
+     console.log(isString('236')); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+
+            width: 450px;
+            height: 40px;
+            color: red;
+
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>名字是：</span>
+        <div class="qs">这里显示姓名</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+
+    <script>
+        // 数据数组
+        const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+        const btn1=document.querySelector('.start')
+        const btn2=document.querySelector('.end')
+        const qs=document.querySelector('.qs')
+       let n=0
+       let rd=0
+
+        const fun=function(){
+            
+            rd=Math.floor(Math.random()*arr.length)
+            qs.innerHTML=arr[rd]
+        }
+        fun();
+       let timeId=0
+       btn1.addEventListener('click',function(){
+         timeId++
+         console.log(timeId);
+        if(timeId==1){
+              n= setInterval( fun,66)
+        }
+        
+          console.log(arr);
+          if(arr.length===1){
+            btn1.disabled=true
+            btn2.disabled=true
+          }
+         console.log(n);
+        
+         //btn1.disabled=true
+       })
+       
+       btn2.addEventListener('click',function(){
+        clearInterval(n)
+        arr.splice(rd,1)
+        timeId=0
+       })
+        
+    </script>
+</body>
+
+</html>

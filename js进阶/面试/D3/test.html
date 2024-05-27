@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+</head>
+<body>
+    <script src= './lodash.min.js' ></script>
+    <script  >
+       /*  const o={
+            name:'小黑子',
+            say(){
+                console.log('基尼太美');
+            }
+        }
+        const s=_.cloneDeep(o)
+        console.log(s);
+        const q=JSON.parse(JSON.stringify(s))
+        console.log(JSON.stringify(s));
+        console.log(q); */
+    /*     const map1=new Map()
+        map1.set('a',1)
+        map1.set('b',2)
+        map1.set('c',4)
+        map1.set('d',5)
+        console.log(map1);
+        for (const iterator of map1) {
+            console.log(iterator);
+        }
+        const map2=new Map()
+        map2.set(function(){},'你好')
+        let obj={}
+        map2.set(obj,'3')
+        map2.set([],[1,2,3])
+        map2.set(NaN,'hello world')
+        console.log(map2);
+        for (const iterator of map2) {
+            console.log(iterator);
+        }
+       console.log(map2.get(obj));  */
+       const s=new Set()
+       s.add(1)
+       s.add(2)
+       s.add(3)
+       s.add(3)
+       s.add(8)
+       console.log(s); 
+      s.forEach(element => {
+        console.log(element);
+      });
+      const it=s[Symbol.iterator]()
+      console.log(it.next().value);
+        console.log(it.next().value);
+    </script>
+</body>
+</html>

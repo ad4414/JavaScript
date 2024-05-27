@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class SingleTon{
+            static #instance
+            //静态方法
+            static getInstance(){
+//判断并返回对象
+              if(this.#instance===undefined){
+                this.#instance=new SingleTon()
+              }
+              return this.#instance
+            }
+        }
+        const s1=SingleTon.getInstance()
+        const s2=SingleTon.getInstance()
+        console.log(s1===s2);
+    </script>
+</body>
+</html>

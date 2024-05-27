@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+  .tab-list {
+  display: flex;
+}
+  .tab-list a {
+  padding: 0 4.26666667vw;
+  white-space: nowrap;
+  font-size: 3.73333333vw;
+  height: 10.66666667vw;
+  line-height: 10.66666667vw;
+}
+  .tab-list .line {
+  position: absolute;
+  left: 4.26666667vw;
+  bottom: 0;
+  width: 7.46666667vw;
+  height: 0.53333333vw;
+  background-color: #fb7299;
+  transition: all 0.3s;
+}
+    </style>
+</head>
+<body>
+    <div class="tab-list">
+         <a href="#">首页</a>
+         <a href="#">动画</a>
+         <a href="#">番剧</a>
+         <a href="#">果蔬</a>
+         <a href="#">音乐</a>
+         <a href="#">舞蹈</a>
+         <div class="line"></div>
+    </div>
+    <script>
+        const list=document.querySelector('.tab-list')
+        const line=document.querySelector('.line')
+        list.addEventListener('click' ,function(e){
+            console.log(e.target.tagName);
+            if(e.target.tagName==='A'){
+                console.log(e.target.offsetLeft);
+                line.style.transform= `translateX(${e.target.offsetLeft}px)`
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            padding-top: 100px;
+            width: 500px;
+            height: 5000px;
+        } 
+        div{
+            display: none;
+            margin: 100px;
+            overflow: scroll;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+
+    </div>
+    <script>
+      /*   window.addEventListener('scroll',function(){
+            // console.log('hello');
+        }) */
+        const div=document.querySelector('div')
+        window.addEventListener('scroll',function(){
+             const n=document.documentElement.scrollTop
+             if(n>100){
+                div.style.display='block'
+             }
+        })
+        /* div.addEventListener('scroll',function(){
+            // alert('hello')
+            console.log(div.scrollTop);
+        }) */
+  console.log(document.documentElement);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lodash.min.js"></script>
+    <style>
+        .box{
+            height: 400px;
+            width: 400px;
+            background-color: aqua;
+            color: #fff;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        const box=document.querySelector('.box')
+        let i=1
+        function mouseMove(){
+          box.innerHTML=i++
+        }
+        box.addEventListener('mousemove',_.throttle(mouseMove,500))
+    </script>
+</body>
+</html>

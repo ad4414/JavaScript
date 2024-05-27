@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+           name
+           age=18
+           constructor(name){
+            this.name=name
+            this.food=['西红柿炒蛋','红烧肉']
+           } 
+           say(){
+            console.log(`hello ${this.name}`);
+            console.log(this.food);
+           }
+        }
+        class Students extends Person{
+            male
+            constructor(name,age,male){
+                super(name,age)
+                this.male=male
+            }
+            learnt(){
+                console.log(`${this.name}年龄${this.age}性别:${this.male}`);
+            }
+        }
+         
+        const s=new Students('坤坤',25,'男')
+        s.learnt()
+    </script>
+</body>
+</html>
