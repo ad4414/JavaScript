@@ -1,0 +1,3 @@
+[submodule "react-bill-test"]
+	path = react-bill-test
+	url = git@github.com:ad4414/reactApp.git
